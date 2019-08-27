@@ -1,0 +1,155 @@
+<ion-header>
+  <div class="headbg">
+    <div class="logopos">
+      <div class="logoposin" tabable  >
+        <div class="left"><img src="../../assets/imgs/51logo@3x.png" /></div>
+        <div class="right"><span>{{city}}</span><img src="../../assets/imgs/nav_icon_loaction@3x.png" /></div>
+      </div>
+
+    </div>
+    <div class="headwin">
+      <div class="winin">
+        <div class="platforms">
+          <div class="p1"></div>
+          <div class="p2"></div>
+        </div>
+        <div class="title">
+          <div class="no">{{money}}</div>
+          <div class="ex">可融额度(元)</div>
+        </div>
+        <div class="line">
+          <div class="linecon">
+            <ion-item>
+              <ion-range min="1000" max="{{max}}" step="100" color="secondary" [(ngModel)]="money"></ion-range>
+            </ion-item>
+          </div>
+
+        </div>
+        <div class="text">
+          <div class="ex">
+            <div class="left">最低1000</div>
+            <div class="right">最高{{max}}</div>
+          </div>
+        </div>
+        <div class="btn">
+          <button ion-button class="mybtn" (click)="createLoan()">{{mytitle}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content padding>
+  <div class="division d1">
+    <div class="divin">
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngIf="appleStore" col-4 tabable (click)="gotoCards()">
+            <div class="top"><img src="../../assets/imgs/xinyonka.png"></div>
+            <div class="bottom">办信用卡2</div>
+          </ion-col>
+
+          <ion-col col-4  tabable  (click)="gotoLoan()" *ngIf="isLoan" >
+            <div class="top"><img src="../../assets/imgs/daikuan.png"></div>
+            <div class="bottom">融资超市</div>
+          </ion-col>
+          <ion-col col-4 tabable (click)="gotoSearchletter()" >
+            <div class="top"><img src="../../assets/imgs/xingzheng.png"></div>
+            <div class="bottom">信证查询</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
+  <div class="division d2">
+    <div class="divin">
+      <div class="item item1">
+        <div class="title">信用额度查询</div>
+        <div class="btncon">
+          <div class="left">
+            <div class="title2">可融资额度（元）</div>
+            <div class="count">1000 - 500000</div>
+          </div>
+          <div class="right">
+            <button ion-button class="mybtn" (click)="gotoSearchletter()" >测测我的额度</button>
+          </div>
+        </div>
+      </div>
+      <div class="item item2">
+          <ion-grid>
+            <ion-row *ngIf="appleStore">
+              <ion-col col-4 tabable (click)="gotoCards()">
+                <div class="top"><img src="../../assets/imgs/icon_xinyonka2@3x.png" height="25" width="25"/></div>
+                <div class="center">信用卡中心</div>
+                <div class="bottom">免管理费/年费</div>
+              </ion-col>
+
+              <ion-col col-4 tabable (click)="gotoLoan()" *ngIf="isLoan" >
+                <div class="top"><img src="../../assets/imgs/icon_xuandai@3x.png" height="25" width="25"/></div>
+                <div class="center">一键选融资</div>
+                <div class="bottom">秒出融资方案</div>
+              </ion-col>
+              <ion-col col-4 tabable (click)="createLoan()">
+                <div class="top"><img src="../../assets/imgs/icon_progress@3x.png" height="25" width="25"/></div>
+                <div class="center">申请进度</div>
+                <div class="bottom">最高达50万</div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </div>
+    </div>
+  </div>
+  <div class="division d3" *ngIf="isLoan" >
+    <div class="top"><div class="divin">热门融资推荐</div></div>
+     <div class="center">
+       <div class="divin">
+         <div class="centerleft" tabable (click)="gotoIframe(loan1)">
+           <div class="left"><img [src]="loan1.logo" /></div>
+           <div class="right">
+             <div class="title">{{loan1.title}}</div>
+             <div class="des">最高{{loan1.quota_hight}}元</div>
+           </div>
+         </div>
+         <div class="centerline"></div>
+         <div class="centerright" tabable (click)="gotoIframe(loan2)">
+           <div class="left"><img [src]="loan2.logo" /></div>
+           <div class="right">
+             <div class="title">{{loan2.title}}</div>
+             <div class="des">最高{{loan2.quota_hight}}元</div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+     <div class="bottom"  tabable  (click)="gotoLoan()">更多</div>
+  </div>
+  <div class="division d4" *ngIf="appleStore">
+    <div class="top"><div class="divin">信用卡推荐</div></div>
+    <div class="center">
+      <div class="divin">
+        <div class="item" tabable (click)="gotoIframe2(credit1)">
+          <div class="itemin">
+            <div class="left"><img [src]="credit1.logo" /></div>
+            <div class="right">
+              <div class="title">{{credit1.recommend}}</div>
+              <div class="des">{{credit1.credie_bank_name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="item" tabable (click)="gotoIframe2(credit2)">
+          <div class="itemin">
+            <div class="left"><img [src]="credit2.logo" /></div>
+            <div class="right">
+              <div class="title">{{credit2.recommend}}</div>
+              <div class="des">{{credit2.credie_bank_name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="banklogo" tabable (click)="gotoIdex(idexCredit)"><img src="{{idexCredit.logo}}" /></div>
+      </div>
+
+    </div>
+    <div class="bottom" tabable (click)="gotoCards()">更多</div>
+  </div>
+</ion-content>

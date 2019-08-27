@@ -1,0 +1,55 @@
+<!--
+  Generated template for the FacecheckPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only tappable (click)="goBack()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>实名认证</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="step">
+    <div class="divin">
+      <div class="stepline">
+        <div class="round round1 active">1</div>
+        <div class="round round2 active">2</div>
+        <div class="round round3">3</div>
+        <div class="line active"></div>
+      </div>
+      <div class="stepdes">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4  class="col1" >
+              身份认证
+            </ion-col>
+            <ion-col col-4 class="col2">
+              面部识别
+            </ion-col>
+            <ion-col col-4  class="col3">
+              我的额度
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+  <div class="divin">
+    <div class="devision d1" tabable (click)="gotoFace()">
+      <div class="imgcon"><img src="../../assets/imgs/icon_boy@3x.png" /></div>
+      <div class="des">面部识别</div>
+    </div>
+  </div>
+  <div class="btncon">
+    <button ion-button class="mybtn" (click)="gotoFace()">{{nextText}}</button>
+  </div>
+</ion-content>

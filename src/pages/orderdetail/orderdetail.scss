@@ -1,0 +1,121 @@
+page-orderdetail {
+  .scroll-content{padding:0px !important;}
+  .header-ios .toolbar-ios:last-child .toolbar-background-ios{border:0px;}
+  .ion-page ion-header .toolbar-background{}
+  .toolbar-background, .toolbar-background-ios{background:transparent !important;color:#ffffff;border:0px !important}
+  .toolbar-title-ios{color:#ffffff !important;}
+  .ion-page ion-header ion-navbar .toolbar-background{border:0px !important;}
+  .toolbar, .toolbar-ios{padding-bottom:calc(env(safe-area-inset-bottom) + 0px) !important;}
+  ion-app.ios [padding]{padding:0px;}
+  ion-footer{
+    .left{width:50%;float:left;}
+    .right{width:50%;float:right;}
+    .mybtn{
+      background-image: -webkit-linear-gradient(0deg, #FB8300, #F54C00);
+      border-radius:0px;width:100%;
+    }
+    .mybtn2{
+      background-color:#ffffff;color:rgba(245, 76, 0, 1);
+      border-radius:0px;width:100%;
+    }
+    .button-ios{padding:0px;margin:0px;}
+  }
+
+
+
+  .headbg{
+    padding-top:4px;
+    width:100%;height:190px;postion:relative;
+    background-image: -webkit-linear-gradient(0deg, #FB8300, #F54C00);
+    .logopos{
+      width:100%;position:relative;height:20px;margin-top:30px;
+      .logoposin{
+        width:90%;margin:0px auto;height:20px;
+      }
+      .left{height:20px;width:50%;float:left;}
+      .right{height:20px;width:50%;float:right;
+        span{float:right;color:#ffffff;}
+        img{float:right;}
+      }
+      img{height:100%;width:auto;}
+    }
+    .moneydes{text-align:center;color:#ffffff;font-size:12px;}
+    .money{text-align:center;color:#ffffff;padding:0px 0px 5px 0px;font-size:30px;@include pfm();}
+    .type{text-align:center;}
+    .typebtn{font-size:12px;color:#ffffff;padding:2px 10px;border:1px solid #f7ae89;border-radius:2px;display:inline-block;}
+  }
+
+
+  .division{
+    margin-top:10px;background-color:#ffffff;
+    .divin{
+      margin:0px auto;width:90%;
+      text-align:center;
+    }
+  }
+  .division.d3
+  {
+    .top{height:50px;color:#3D4552;font-size:15px;@include pfm();
+      border-bottom:1px solid #EEEEEE;
+      .divin{height:50px;line-height:50px;text-align:left;
+        .left{width:50%;float:left;}
+        .right{width:50%;float:right;text-align:right;@include pfr();font-size:12px;}
+      }
+    }
+    .center{
+      position:relative;padding:10px 0px;
+      border-bottom:1px solid #EEEEEE;
+      .item{overflow:hidden;}
+      .centerleft{height:50px;width:50%;margin-top:15px;float:left;}
+      .centerright{
+        height:50px;width:50%;margin-top:15px;float:right;
+      }
+      .centerline{
+        height:50px;position:absolute;left:50%;width:0px;top:15px;border-right:1px solid #EEEEEE;
+      }
+      .left{height:40px;width:40px;float:left;margin-right:10px;
+        img{height:100%;width:auto;}
+      }
+      .right{height:40px;float:left;}
+      .des{font-size:12px;color:#9697A5;text-align:left;}
+
+    }
+    .bottom{
+      clear:both;
+      height:50px;line-height:50px;text-align:center;color:#F54C00;font-size:14px;
+    }
+    .item{
+      height:40px;line-height:40px;font-size:14px;
+      .left{color:#9697A5;float:left;width:30%;margin-right:0px;}
+      .right{float:right;width:69%;text-align:right;}
+    }
+  }
+  .division.d4{
+    .item{
+      height:60px;font-size:14px;
+      .itemcon{
+        height:40px;line-height:40px;overflow:hidden;
+      }
+      .des{
+        height:20px;
+        line-height:20px;
+        text-align:right;
+        color:#9697A5;
+        font-size:10px;
+      }
+      .left{color:#9697A5;float:left;width:30%;margin-right:0px;}
+      .right{float:right;width:69%;text-align:right;}
+    }
+  }
+
+
+  @media (device-width: 375px) and (device-height: 812px) and (-webkit-min-device-pixel-ratio : 3){
+    //如果以后出现375*812,非ios机型，可以加上下面语句
+    .headbg{height:240px !important;}
+
+
+  }
+
+  .toolbar-title-md{color:#ffffff !important;}
+
+}

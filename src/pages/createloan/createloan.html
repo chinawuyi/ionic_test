@@ -1,0 +1,66 @@
+<!--
+  Generated template for the CreateloanPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only tappable (click)="goBack()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>我要融资</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="devision d1">
+    <div class="divin">
+      <div class="title">
+        <div class="ex">融资金额(元)</div>
+        <div class="ex3">{{money}}</div>
+      </div>
+      <div class="line">
+        <div class="linecon">
+          <ion-item>
+            <ion-range min="1000" max="{{credit}}" step="100" color="secondary" [(ngModel)]="money"></ion-range>
+          </ion-item>
+        </div>
+
+      </div>
+      <div class="text">
+        <div class="ex">
+          <div class="left">最低1000</div>
+          <div class="right">最高{{credit}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="devision d2" >
+    <div class="divin">
+      <ion-list>
+
+        <ion-item>
+          <ion-label class="lab1" fixed>融资金额</ion-label>
+          <ion-input class="input1" [(ngModel)]="money" type="number" disabled placeholder="融资金额"  value=""></ion-input>
+        </ion-item>
+        <ion-item tabable (click)="chooseType()">
+          <ion-label class="lab1" fixed>融资用途</ion-label>
+          <ion-input class="input1" [(ngModel)]="subObj.type" type="text" disabled placeholder="融资用途"  value=""></ion-input>
+        </ion-item>
+        <ion-item tabable (click)="chooseTime()">
+          <ion-label class="lab1" fixed>融资周期</ion-label>
+          <ion-input class="input1" [(ngModel)]="subObj.time" type="text" disabled placeholder="融资周期"  value=""></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+  <div class="btncon">
+    <button ion-button class="mybtn" (click)="createLoan()">急速申请，秒到账</button>
+  </div>
+</ion-content>

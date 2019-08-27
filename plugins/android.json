@@ -1,0 +1,53 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "xlzx",
+      "ANDROID_SCHEME": " ",
+      "ANDROID_HOST": " ",
+      "ANDROID_PATHPREFIX": "/",
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-themeablebrowser": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.new.new51xz"
+    }
+  },
+  "dependent_plugins": {}
+}

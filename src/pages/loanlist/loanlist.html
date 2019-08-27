@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only tappable (click)="goBack()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>融资超市</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ul class="tab-list">
+      <li [ngClass]="{'active':curIndex == i}" *ngFor="let item of orderStatus;let i =index" tappable (click)="tabOrder(i)"><span>{{item}}</span></li>
+    </ul>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item  *ngFor="let item of loanList" (click)="jumpItem(item)">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2  >
+            <img [src]="item.logo" />
+          </ion-col>
+          <ion-col col-6 >
+            <div class="title">{{item.title}}</div>
+            <div class="des">{{item.short_tag}}</div>
+          </ion-col>
+          <ion-col col-4 >
+            <div class="price">{{item.quota_low}}~{{item.quota_hight}}</div>
+            <div class="des">可融资金额</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </button>
+  </ion-list>
+</ion-content>

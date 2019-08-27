@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left   *ngIf="hiddenBackBtn == false">
+      <button ion-button icon-only tappable (click)="goBack()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>我的订单</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ul class="tab-list">
+      <li [ngClass]="{'active':curIndex == i}" *ngFor="let item of orderStatus;let i =index" tappable (click)="tabOrder(i)"><span>{{item}}</span></li>
+    </ul>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <section class="sec mt13" >
+    <div class="item-mid" *ngFor="let item of orderList" tabable (click)="gotoDetail(item);">
+      <div class="order-city"  >
+        <span class="name">{{item.coope_name}}</span>
+        <span class="status">{{item.borrow_state}}</span>
+      </div>
+      <div class="order-info"  >
+        <img [src]="item.org_logo" alt="">
+        <div class="info">
+          <p class="name">{{item.coope_name}}</p>
+          <div class="des">客服电话：{{item.service_phone}}</div>
+
+        </div>
+      </div>
+      <div class="sum">
+        <span class="money">金额: <i>¥{{item.borrow_money}}</i></span>
+        <div class="btns" >
+          <button *ngIf="item.borrow_state == '待还款' || item.borrow_state == '已逾期'"  class="paynow" tappable >立即还款</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <p class="noOrder" style="display:none;">您还没有订单哦，快去申请吧~~</p>
+</ion-content>

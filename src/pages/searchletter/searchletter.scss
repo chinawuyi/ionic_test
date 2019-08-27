@@ -1,0 +1,151 @@
+page-searchletter {
+  .scroll-content{padding:0px !important;}
+  .division{
+    margin-bottom:10px;background-color:#ffffff;
+    .divin{
+      margin:0px auto;width:90%;
+      text-align:center;
+    }
+  }
+  .divin{
+    margin:0px auto;width:90%;
+    .left{width:50%;height:100%;float:left;
+      @include pfm();line-height:45px;}
+    .right{width:50%;height:100%;float:right;text-align: right;
+      .mybtn{
+        height:35px;width:88px;
+        font-size:14px;border-radius:3px;
+        float:right;margin-top:8px;padding-left:20px;padding-right:20px;
+        background-image: -webkit-linear-gradient(0deg, #FB8300, #F54C00);
+      }
+    }
+  }
+  .division.d1{height:110px;}
+  .division.d2{
+    height:230px;
+    .item1{
+      height:120px;overflow:hidden;
+      .title{
+        font-size:15px;
+        text-align:left;
+        padding:10px 0px;
+        @include pfm();
+      }
+      .title2{
+        font-size:14px;
+        text-align:left;
+        color:#9697A5;
+      }
+      .count{
+        text-align:left;
+        color:#FA7B00;
+        @include pfm();
+        font-size:24px;
+      }
+      .left{width:60%;float:left;}
+      .right{width:40%;float:right;
+        .mybtn{
+          height:35px;
+          font-size:14px;border-radius:20px;
+          float:right;margin-top:8px;padding-left:20px;padding-right:20px;
+          background-image: -webkit-linear-gradient(0deg, #FB8300, #F54C00);
+        }
+      }
+    }
+    .item2{
+      clear:both;
+      height:110px;
+      .grid{padding:0px;}
+      .center{font-weight:bolder;}
+      .bottom{font-size:12px;color:#9697A5;}
+    }
+  }
+  .division.d3{ margin-top:10px;
+    overflow:hidden;
+    .con{padding:10px 0px;}
+    img{width:35px;height:auto;}
+    .top{height:50px;color:#3D4552;font-size:15px;@include pfm();
+      border-bottom:1px solid #EEEEEE;
+      .divin{height:50px;line-height:50px;text-align:left;
+
+      }
+    }
+    .center{
+      position:relative;
+      border-bottom:1px solid #EEEEEE;
+      .centerleft{height:50px;width:50%;margin-top:15px;float:left;}
+      .centerright{
+        height:50px;width:50%;margin-top:15px;float:right;
+      }
+      .centerline{
+        height:50px;position:absolute;left:50%;width:0px;top:15px;border-right:1px solid #EEEEEE;
+      }
+      .left{height:40px;width:40px;float:left;margin-right:10px;
+        img{height:100%;width:auto;}
+      }
+      .right{height:40px;float:left;}
+      .des{font-size:12px;color:#9697A5;text-align:right;}
+
+    }
+    .bottom{
+      clear:both;
+      @include pfr();
+      text-align:center;color:#3D4552;font-size:14px;
+    }
+    .bottom2{
+      clear:both;
+      @include pfr();
+      text-align:center;color:#9697A5;font-size:12px;
+    }
+  }
+
+
+  .division.d4{
+    .top{height:50px;color:#3D4552;font-size:15px;@include pfm();
+      border-bottom:1px solid #EEEEEE;
+      .divin{height:50px;line-height:50px;text-align:left;
+
+      }
+    }
+    .center{
+      position:relative;
+      border-bottom:1px solid #EEEEEE;
+      .centerleft{height:50px;width:50%;margin-top:15px;float:left;}
+      .centerright{
+        height:50px;width:50%;margin-top:15px;float:right;
+      }
+      .centerline{
+        height:50px;position:absolute;left:50%;width:0px;top:15px;border-right:1px solid #EEEEEE;
+      }
+      .right{height:40px;float:left;}
+      .des{font-size:12px;color:#9697A5;text-align:left;}
+      .divin{
+        .item{
+          height:100px;
+          border-bottom:1px solid #EEEEEE;
+          .itemin{
+            height:64px;margin-top:18px;
+            .left{height:64px;float:left;width:34%;
+              img{height:64px;width:auto;}
+            }
+            .right{height:64px;width:65%;float:left;text-align:left;
+              .des{font-size:12px;color:#9697A5;text-align:left;margin-top:4px;}
+            }
+          }
+        }
+      }
+      .banklogo{clear:both;
+        img{width:100%;height:auto;}
+      }
+    }
+    .bottom{
+      clear:both;
+      height:50px;line-height:50px;text-align:center;color:#F54C00;font-size:14px;
+    }
+  }
+  .grid{
+    min-height:200px;
+  }
+  .blue{color:blue !important;}
+
+}

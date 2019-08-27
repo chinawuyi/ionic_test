@@ -1,0 +1,129 @@
+page-orderlist {
+  .toolbar-title-ios{color:#222222 !important;height:32px;}
+  .item-mid{margin-bottom:10px;}
+  .toolbar-title-md{color:#424242 !important;}
+  .toolbar-background{border-bottom:0px !important;}
+  .order-city{
+    padding:10px 0px;
+    line-height:2.4rem;
+    color:$color-dark;
+
+    border-bottom:1px solid #EEEEEE;font-size:16px;
+    .status{
+      @include fz(14);
+      color:$color3;
+      float:right;
+      .countdown {
+        @include pub-button(4.5rem,1.3rem,$bg-white,$colorf50,7);
+        border:1px solid $colorf50;
+        @include rounded-corners(2px);
+        margin-right:0.4rem;
+        .icon-hourglass{
+          margin:-0.3rem 0.3rem 0 0;
+        }
+      }
+    }
+  }
+  .order-info{
+    font-size:0;
+    margin:10px 0px;
+    white-space:normal;
+    .des{font-size:12px;color:#9697A5;text-align:left;word-break: break-all;}
+    img {
+      display:inline-block;
+      vertical-align: middle;
+      width:26%;
+      margin-right:4%;
+    }
+    .info{
+      display:inline-block;
+      vertical-align: middle;
+      width:70%;
+      po；sition:relative;
+      .name {
+        @include fz(15);
+        color:$color3;
+        line-height:2.1rem;
+      }
+
+    }
+  }
+  .sum{
+    height:4.5rem;
+    line-height:4.5rem;
+    border-top:$li-border;
+    font-size:0;
+    white-space: nowrap;
+    .money{
+      @include fz(14);
+      display:inline-block;
+      color:$color-gray;
+      i{
+        font-style:normal;
+        @include fz(16);color:#F54C00;
+      }
+      .moneyno{
+
+      }
+    }
+    .btns{
+      display:inline-block;
+      width:69%;
+      text-align:right;
+      float:right;
+      button{
+        @include pub-button(8.1rem,2.8rem,$bg-white,$color3,15);
+        vertical-align: middle;
+        margin-left:4.3%;
+        &.paynow{
+          background:$colorf80;
+          @include rounded-corners(1.2rem);
+          color:$color-white;
+        }
+        &.onlyborder{
+          border:1px solid $colorf80;
+          @include rounded-corners(1.2rem);
+          color:$colorf80;
+        }
+      }
+    }
+  }
+  .cancelOrder{
+    .order-city{
+      .status{
+        color:$color9;
+      }
+    }
+  }
+  .paid{
+    .order-city{
+      .status{
+        color:$color4a0;
+      }
+    }
+  }
+  .returnedCar{
+    .order-city{
+      .status{
+        color:$color3;
+      }
+    }
+  }
+  .waitPay{
+    .order-city{
+      .status{
+        color:$colorf50;
+      }
+    }
+    .sum {
+      i{
+        color:$colorf50;
+      }
+    }
+  }
+  .noOrder{
+    text-align:center;
+    padding:2rem 0;
+    font-size:1.4rem;
+  }
+}

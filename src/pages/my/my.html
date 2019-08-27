@@ -1,0 +1,66 @@
+<ion-header>
+  <div class="myinfo">
+    <div class="divin">
+      <div class="my" >
+        <div class="left">我的</div>
+        <div class="right" tabable (click)="showQuit()"><img src="../../assets/imgs/nav_icon_setting@3x.png" /></div>
+      </div>
+      <div class="toux">
+        <div class="left"><img src="../../assets/imgs/img_head@3x.png" /></div>
+        <div class="right">
+          <div *ngIf ="!isLogin"  class="name namelogin"  tabable (click)="gotoLogin()">登录/注册</div>
+          <div *ngIf ="isLogin"  class="name">{{name}}</div>
+          <div *ngIf ="isLogin"  class="phone">{{mobile}}</div>
+        </div>
+      </div>
+      <div class="goxz"  *ngIf="is_approved !='1' " tabable (click)="gotoIdCard()">
+        <div class="in">
+          <span class="s1"><img src="../../assets/imgs/mine_icon_shiming@3x.png"></span>
+          <span class="s2">完成实名认证，立即融资</span>
+          <span class="s3"><img src="../../assets/imgs/icon_more_orange@3x.png"></span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="margin-top:20px;">
+    <ion-list>
+      <button ion-item  (click)="gotoSearchletter()">
+        <span class="left"><img src="../../assets/imgs/mine_icon_xinzheng@3x.png" /></span>
+        <span>信证查询</span>
+      </button>
+    </ion-list>
+    <ion-list>
+      <button ion-item  (click)="gotoMyBank()">
+        <span class="left"><img class="bank" src="../../assets/imgs/mybank.png" /></span>
+        <span>我的银行卡</span>
+      </button>
+    </ion-list>
+    <ion-list>
+      <button ion-item (click)="gotoFindpass()">
+        <span class="left"><img  src="../../assets/imgs/mine_icon_message@3x.png" /></span>
+        <span>密码安全</span>
+      </button>
+    </ion-list>
+    <ion-list>
+      <button ion-item (click)="gotoKefu()">
+        <span class="left"><img src="../../assets/imgs/mine_icon_service@3x.png" /></span>
+        <span>客服中心</span>
+      </button>
+    </ion-list>
+    <ion-list>
+      <button ion-item  (click)="gotoAbout()">
+        <span class="left"><img src="../../assets/imgs/mine_icon_about@3x.png" /></span>
+        <span>关于我们</span>
+      </button>
+    </ion-list>
+  </div>
+
+</ion-content>

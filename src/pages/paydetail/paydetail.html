@@ -1,0 +1,154 @@
+<!--
+  Generated template for the OrderdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <div class="headbg">
+    <ion-navbar hideBackButton="true" >
+      <ion-buttons left>
+        <button ion-button icon-only tappable (click)="goBack()">
+          <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>订单详情</ion-title>
+    </ion-navbar>
+    <div class="moneydes">总金额</div>
+    <div class="money">{{orderDetail.borrow_money}}</div>
+    <div class="type">
+      <div class="typebtn">{{orderDetail.borrow_state}}</div>
+    </div>
+  </div>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="division d3">
+    <div class="top"><div class="divin">融资信息</div></div>
+    <div class="center">
+      <div class="divin">
+        <div class="item">
+          <div class="left">融资日期</div>
+          <div class="right">{{orderDetail.apply_time}}</div>
+        </div>
+        <div class="item">
+          <div class="left">融资金额</div>
+          <div class="right">{{orderDetail.borrow_money}}</div>
+        </div>
+        <div class="item">
+          <div class="left">融资期数</div>
+          <div class="right">{{orderDetail.borrow_week}}</div>
+        </div>
+        <div class="item">
+          <div class="left">融资用途</div>
+          <div class="right">{{orderDetail.borrow_reason}}</div>
+        </div>
+        <div class="item">
+          <div class="left">融资状态</div>
+          <div class="right">{{orderDetail.borrow_state}}</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="division d3 d4">
+    <div class="top"><div class="divin">融资明细</div></div>
+    <div class="center">
+      <div class="divin">
+        <div class="item" *ngFor="let item of orderDetail.list;let i = index">
+          <div class="itemcon">
+            <div class="left">
+              <div class="leftin"><ion-checkbox  *ngIf="item.cycle_mem != '已赎回'"  [(ngModel)]="orderDetail.list[i].checked" disabled="{{item.disabled}}"  (ionChange)="checkList(i)"></ion-checkbox>&nbsp;</div>
+              <div class="rightin">{{item.cycle}}</div>
+            </div>
+            <div class="right">{{item.total}}</div>
+          </div>
+          <div class="des">
+            <div class="left">
+              <div class="leftin">&nbsp;</div>
+              <div class="rightin">{{item.cycle_mem}}</div>
+            </div>
+            <div class="right">{{item.detail}}</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="division d3"  *ngIf="orderId !='' ">
+    <div class="top">
+      <div class="divin">
+        <div class="left">用户信息</div>
+        <div class="right" style="display:none;" tabable (click)="changeBank()">更换银行卡</div>
+      </div>
+    </div>
+    <div class="center">
+      <div class="divin">
+        <div class="item">
+          <div class="left">银行卡号</div>
+          <div class="right">{{orderDetail.bank_number}}</div>
+        </div>
+        <div class="item">
+          <div class="left">发卡银行</div>
+          <div class="right">{{orderDetail.bank_name}}</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="division d3"  *ngIf="orderDetail.contract_url != ''">
+    <div class="top">
+      <div class="divin">
+        <div class="left">合同信息</div>
+        <div class="right" style="display:none;" ></div>
+      </div>
+    </div>
+    <div class="center">
+      <div class="divin">
+        <div class="item">
+          <div class="left">我的合同</div>
+          <div class="right" (click)="openContract()">查看</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="division d3 d5">
+    <section class="sec mt13">
+      <div class="agreement"><span class="icon-radio speradio" [ngClass]="{'checked':checkedPro}" tappable (click)="ageement()"></span>已阅读并同意<a tappable (click)="gotoService()">融资须知条款<i class="icon-arr-r-yellow"></i></a></div>
+    </section>
+    <div style="height:60px;"></div>
+  </div>
+</ion-content>
+
+<ion-footer  *ngIf="orderDetail.borrow_state == '待赎回'">
+  <div class="shadow" tappable (click)="showFeeDetail()" *ngIf="isShow" ></div>
+  <div class="fee-detail" *ngIf="isShow">
+    <section class="sec">
+      <div class="title"><span>费用明细</span></div>
+      <ul class="fee-list">
+        <li *ngFor="let item of checkedList;">
+          <div class="name">{{item.cycle}}</div>
+          <div class="price">{{item.detail}}</div>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <div class="submit-btn">
+    <div class="sub-btn-l">
+      <div class="submit-info">
+        <p class="money">支付金额:<span class="orange"  id="jsmoney">{{payMoney2}}</span></p>
+      </div>
+      <div class="submit-detail" tappable (click)="showFeeDetail()">明细<span class="icon-arrow-black" ></span></div>
+    </div>
+    <div class="sub-btn-r"  tappable  (click)="subData()">提交订单</div>
+  </div>
+</ion-footer>
+

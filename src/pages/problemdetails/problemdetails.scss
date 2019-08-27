@@ -1,0 +1,32 @@
+page-problemdetails {
+  .sec{
+      .item-mid{
+          .problem-info{
+              margin-top: 1.2rem;
+              padding: 1.4rem 0 1rem;
+              h2{
+                  @include fz(16);
+                  color:$color-dark;
+                  line-height: 2.2rem;
+                  margin-bottom: 0.9rem;
+                  letter-spacing: -0.39px;
+              }
+              p{
+                  @include fz(15);
+                  color:$color-gray;
+                  line-height: 2.4rem;
+              }
+          }
+      }
+  }
+  ion-icon[name='arrow-forward']{
+    margin-top:-0.2rem;
+    &:before{
+      content:"";
+      width:2rem;
+      height:2rem;
+      background:url($bg-img+'call_phone.png') no-repeat;
+      background-size:contain;
+   }
+  }
+}

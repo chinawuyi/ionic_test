@@ -1,0 +1,60 @@
+<!--
+  Generated template for the AddbankPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+  中国银行、工商银行、平安银行、光大银行、中信银行、上海银行、北京银行、建设银行、交通银行、邮储银行、浦发银行、兴业银行、广发银行、浙商银行、广州银行
+  农业银行
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only tappable (click)="goBack()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>添加银行卡</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="请输入银行卡号" type="tel" (ionBlur)="blurInput()" [(ngModel)]="cardNo" clearInput></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>开户银行</ion-label>
+      <ion-select [(ngModel)]="bankType" multiple="false" okText="确认" cancelText="取消">
+        <ion-option>中国银行</ion-option>
+        <ion-option>工商银行</ion-option>
+        <ion-option>平安银行</ion-option>
+        <ion-option>光大银行</ion-option>
+        <ion-option>中信银行</ion-option>
+        <ion-option>上海银行</ion-option>
+        <ion-option>北京银行</ion-option>
+        <ion-option>建设银行</ion-option>
+        <ion-option>交通银行</ion-option>
+        <ion-option>邮储银行</ion-option>
+        <ion-option>浦发银行</ion-option>
+        <ion-option>兴业银行</ion-option>
+        <ion-option>广发银行</ion-option>
+        <ion-option>浙商银行</ion-option>
+        <ion-option>广州银行</ion-option>
+        <ion-option>农业银行</ion-option>
+        <ion-option>招商银行</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="请输入预留电话" type="tel" [(ngModel)]="prePhone" clearInput></ion-input>
+    </ion-item>
+  </ion-list>
+  <div class="btncon">
+    <button ion-button class="mybtn" (click)="addBank()">确认</button>
+  </div>
+</ion-content>

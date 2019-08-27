@@ -1,0 +1,22 @@
+page-mybanks {
+  .item-ios ion-avatar ion-img, .item-ios ion-avatar img{
+    overflow: hidden;
+    width: 25px;
+    height: auto;
+    margin-top: 8px;
+    border-radius:0px;
+  }
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border-bottom:0px;
+  }
+  .list-ios{margin-bottom:10px;}
+  .btncon{width:90%;margin:0px auto;
+    .mybtn{
+      height:35px;width:100%;
+      font-size:14px;border-radius:20px;
+      float:right;margin-top:8px;padding-left:20px;padding-right:20px;
+      background-image: -webkit-linear-gradient(0deg, #FB8300, #F54C00);
+    }
+  }
+  .item-ios h2{margin-top:0px !important;}
+}

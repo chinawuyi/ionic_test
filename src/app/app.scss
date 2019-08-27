@@ -1,0 +1,962 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+/*global url*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .btn, button {margin: 0; padding: 0; border: 0; }
+a{
+  text-decoration: none;
+  &:hover,&:visited{
+    text-decoration: none;
+  }
+}
+$bg-img:'../assets/imgs/';
+/*colors*/
+$backgroundcolor-blue: #F90;
+$bg-white: #ffffff;
+$bg-gray: #f1f1f1;
+
+//字体颜色
+$color-gray:#666;
+$color-dark:#222;
+$color-yellow:#FFAC00;
+$color3:#333;
+$color5:#555;
+$color9:#999;
+$back-btn-color:#ffffff;
+$color-white:#fff;
+$colorf70:#FF7800;
+$colorfd8:#d8d8d8;
+$color2A:#2A2A2A;
+$colorf80:#ff8200;
+$colorf3:#f3f3f3;
+$color10:#101010;
+$colorf70:#ff7803;
+$colorf5: #f58112;
+$colorfD: #fd7f00;
+$colorf9:#f9f9f9;
+$colorfd7:#fd7f00;
+$colorf90:#ff9e00;
+$color0d8:#02d08b;
+$colorb752:#b7b5b2;
+$colorf50:#FD5600;
+$color4a0:#43AE0B;
+$color03:#030303;
+$colorfa3:#ffa731;
+$colore30:#ed3f00;
+$colore5:#e5e5e5;
+$colorf700:#FF7000;
+$colorfb6:#ffba6c;
+$colorfb2:#ffb824;
+$colorc:#ccc;
+$colore5:#e5e5e5;
+$color65:#656565;
+$colorf93:#FF993F;
+$color8f:#8f8f8f;
+$color7:#777777;
+
+//字体大小
+@mixin fz($val) {
+  font-size: $val/10 + rem;
+}
+
+//图标公共样式
+@mixin icon-style($w,$h,$img) {
+  width:$w;
+  height:$h;
+  display: inline-block;
+  background:url($bg-img + $img) no-repeat;
+  background-size:contain;
+  vertical-align: middle;
+}
+//图标选中样式
+@mixin icon-checked-style($img) {
+  background-image:url($bg-img + $img);
+}
+
+$btn-border:1px solid #D8D8D8;
+$li-border:1px solid #e5e5e5;
+$com-border:0.5px solid #ff8200;
+
+
+//按钮
+@mixin pub-button($w,$h,$bg-color,$color,$fz) {
+  width:$w;
+  background:$bg-color;
+  line-height:$h;
+  height:$h;
+  text-align:center;
+  color:$color;
+  @include fz($fz);
+  display:inline-block;
+}
+
+
+
+
+
+
+
+//圆角
+@mixin rounded-corners($border) {
+  -moz-border-radius: $border;
+  -webkit-border-radius: $border;
+  border-radius: $border;
+}
+
+//transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+// translate
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+ion-loading {
+  .loading-wrapper{
+    padding:10px !important;
+    border-radius:15px !important;
+    img {
+      vertical-align: middle;
+    }
+    margin-top:-1px;
+  }
+}
+.loading-ios{
+  .loading-wrapper{
+    max-height:100%;
+    max-width:18%;
+  }
+}
+.loading-md .loading-wrapper{
+  max-height:100%;
+  max-width:18%;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+.toast-md .toast-wrapper, .toast-ios .toast-wrapper{
+  background:transparent;
+  .toast-message {
+    padding:1.2rem;
+    background: rgba(0, 0, 0, 0.9);
+    display: inline-block;
+    margin: 0 auto;
+    border-radius:0.65rem;
+    -webkit-box-flex:none;
+    -ms-flex:none;
+    flex:none;
+  }
+}
+
+.back-button-icon-ios {
+  font-size:3rem;
+}
+//替换返回按钮图标
+.ion-ios-arrow-back:before {
+  content:none;
+  content:"";
+  @include icon-style(1rem, 1.5rem, 'leftarrow.png');
+}
+
+//设置ios 全局字体
+ion-app.ios {
+  font-family:"PingFangSC-Regular", "Helvetica Neue", "Roboto", sans-serif;
+  padding-top:constant(safe-area-inset-top)!important;
+  padding-right: constant(safe-area-inset-right)!important;
+  padding-bottom: constant(safe-area-inset-bottom)!important;
+  padding-left: constant(safe-area-inset-left)!important;
+}
+
+// 设置PingFangSC-Medium
+@mixin pfm () {
+  font-family:"PingFangSC-Medium", "Helvetica Neue", "Roboto", sans-serif;
+}
+@mixin pfr () {
+  font-family:"PingFangSC-Regular", "Helvetica Neue", "Roboto", sans-serif;
+}
+.alert-ios .alert-sub-title {
+  text-align:left;
+  margin-top:10px;
+  letter-spacing: 1px;
+  line-height:20px;
+  color:#333;
+}
+
+
+
+.ion-page{
+  ul,li{
+    list-style:none;
+  }
+  .tc {text-align:center!important;}
+  .tl {text-align:left!important;}
+  .tr {text-align:right!important;}
+
+
+  .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+    background-image:none;
+  }
+  ion-header {
+
+    ion-navbar.toolbar {
+      padding: 4px 4%;
+    }
+    ion-buttons{
+      margin:0;
+    }
+    .toolbar-title-ios {
+      @include pfm();
+      font-weight: normal;
+      letter-spacing: -0.41px;
+      color:$back-btn-color;
+    }
+    .bar-button-ios[icon-only] ion-icon{
+      margin: -1px 0 0;
+      display: inherit;
+      min-width: 18px;
+      font-size: 3rem;
+      line-height:1;
+      padding:0;
+    }
+    .bar-button[icon-only] {
+      color:$back-btn-color;
+    }
+    .toolbar-md {
+      min-height:44px;
+      .back-button-md{
+        margin:0;
+        min-width:.9em;
+      }
+      .toolbar-content-md ion-title {
+        left: 0;
+        top: 0;
+        padding: 0 90px 1px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: translateZ(0);
+        -ms-transform: translateZ(0); 	/* IE 9 */
+        -moz-transform: translateZ(0); 	/* Firefox */
+        -webkit-transform: translateZ(0); /* Safari 和 Chrome */
+        -o-transform: translateZ(0);
+        pointer-events: none;
+        .toolbar-title-md {
+          text-align: center;
+          font-size: 18px;
+          color: $back-btn-color;
+          pointer-events: auto;
+        }
+      }
+      .bar-button-md ion-icon{
+        margin: -1px 0 0;
+        display: inherit;
+        min-width: auto;
+        font-size: 3rem;
+        line-height:1;
+        padding:0;
+      }
+      .back-button-icon-md {
+        margin:0;
+      }
+
+    }
+    .toolbar-background{
+      background:$bg-white;
+
+    }
+    ion-buttons[end] .bar-button{
+      margin:0;
+    }
+    .ion-md-arrow-back:before {
+      content:none;
+      content:"";
+      @include icon-style(1rem, 1.8rem, 'i_return.png');
+    }
+    ion-navbar{
+      .toolbar-background{
+        border-bottom:1px solid #e5e5e5;
+      }
+      &.toolbar-ios:first-child{
+        padding-top:24px;
+      }
+      &.toolbar-ios .title {
+       // top:24px;
+      }
+    }
+    .back-button{
+      color:$back-btn-color;
+      padding:0;
+      display:inline-block;
+    }
+    .back-button.show-back-button{
+      color:$back-btn-color;
+      padding:0;
+    }
+    .bar-button[icon-only]{
+      padding:0;
+    }
+  }
+  ion-content{
+    background:$bg-gray;
+  }
+  section.sec{
+    .item-mid {
+      background:$bg-white;
+      padding:0 4%;
+      span{
+        vertical-align: middle;
+      }
+      .common{
+        line-height:4.5rem;
+        border-bottom:$li-border;
+        font-size:0;
+        white-space: nowrap;
+      }
+      .title {
+        @extend .common;
+        line-height:5rem;
+        .name {
+          @include fz(16);
+          letter-spacing: -0.39px;
+        }
+      }
+      .txt{
+        @include fz(15);
+        color:$color-dark;
+        white-space: normal;
+        line-height:2rem;
+        letter-spacing: -0.36px;
+      }
+      .row{
+        @extend .common;
+        .name {
+          @include fz(15);
+          letter-spacing: -0.36px;
+        }
+        .item-input{
+          display:inline-block;
+          vertical-align: middle;
+          width:calc(100% - 1.7rem);
+          input{
+            border:0;
+            @include fz(15);
+            width:100%;
+            text-align:right;
+            vertical-align: middle;
+            background:transparent;
+            padding:1.5rem 0;
+            line-height:2rem;
+
+          }
+          input.blur{
+            color: transparent;
+            text-shadow: 0 0 0 #000;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: rgba(200,200,200,0);
+          }
+        }
+      }
+      .name {
+        color:$color-dark;
+      }
+
+      & .row:last-child, & .title:last-child{
+        border:0;
+      }
+      &.l3-r7{
+        .md-l{
+          width:30%;
+        }
+        .md-r{
+          width:70%;
+        }
+      }
+    }
+    .gray {
+      color:$color-gray;
+      @include fz(14);
+    }
+    .md-l {
+      display:inline-block;
+      vertical-align: top;
+      width:70%;
+      .explain{
+        @include fz(13);
+        color:$color-gray;
+        vertical-align:middle;
+        margin-left:1.5rem;
+        .icon-arrow-down-circle{
+          margin-left:0.5rem;
+        }
+      }
+    }
+    .md-r {
+      display:inline-block;
+      vertical-align: top;
+      width:30%;
+      text-align:right;
+      .right-pd{
+        width:1.7rem;
+        display:inline-block;
+        vertical-align: middle;
+        line-height:5rem;
+      }
+    }
+  }
+
+  section.sec.carinfo-sec{
+    margin-bottom: 1.3rem;
+    .item-mid{
+      position: relative;
+      padding:1.4rem 4% 0.9rem;
+      .cl-top{
+        overflow: hidden;
+        padding-bottom:0.5rem;
+        font-size: 0;
+        white-space: nowrap;
+        .list-left{
+          width: 8.8rem;
+          height:5.2rem;
+          display: inline-block;
+          vertical-align: middle;
+          img{
+            width:100%;
+            height:100%;
+          }
+        }
+        .list-right{
+          width: calc(100% - 8.8rem);
+          display: inline-block;
+          padding-left: 1.5rem;
+          vertical-align: middle;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          h2{
+            @include fz(15);
+            color:$color-dark;
+            margin-bottom: 0.6rem;
+            line-height: 2rem;
+            height:2rem;
+            @include pfm();
+            letter-spacing: -0.36px;
+            i{
+              width:2.8rem;
+              line-height:1rem;
+              padding:0.2rem 0 0.2rem;
+              font-size:1rem;
+              color:$color-white;
+              font-style:normal;
+              background-image: linear-gradient(-18deg, #F96D31 0%, #FDA92B 97%);
+              @include rounded-corners(2px);
+              margin-left: 0.7rem;
+              vertical-align: middle;
+              display:inline-block;
+              text-align:center;
+              letter-spacing: -0.24px;
+              @include pfr();
+            }
+          }
+          .item-conf{
+            margin-bottom: 0.6rem;
+
+            ul{
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              li{
+                display: inline-block;
+                @include fz(11);
+                line-height: 1.1rem;
+                padding:0.25rem 0.8rem 0.25rem;
+                letter-spacing: -0.27px;
+                color:$color-dark;
+                vertical-align: middle;
+                position:relative;
+                &:after{
+                  content:"";
+                  width:1px;
+                  height:0.9rem;
+                  background:$color65;
+                  position:absolute;
+                  right:0;
+                  top:.35rem;
+                }
+              }
+              li:first-child{
+                padding-left:0;
+              }
+              li:last-child{
+                border-right:0;
+                padding-right:0;
+
+              }
+              li:last-child:after{
+                width:0;
+              }
+            }
+          }
+          .item-comment{
+            ul{overflow: hidden;
+              li{
+                float:left;
+                @include icon-style(1rem, 1rem, 'comment_pic1.png');
+                margin-right: 0.5rem;
+              }
+              li.graystar{
+                @include icon-style(1rem, 1rem, 'comment_pic2.png');
+              }
+            }
+          }
+        }
+      }
+      .cl-bottom{
+        overflow: hidden;
+        white-space: nowrap;
+        font-size:0;
+        line-height:2.8rem;
+        div{
+          display:inline-block;
+          vertical-align: middle;
+          text-align: right;
+        }
+        .bottom-tex{
+          width:45.7%;
+          text-align: left;
+          // margin-top:-0.9rem;
+          span{
+            display: inline-block;
+            @include fz(10);
+            line-height:1.4rem;
+            height:1.4rem;
+            color:$colorf5;
+            border: 0.5px solid $colorf5;
+            border-radius: 0.3rem;
+            padding:0 0.5rem;
+            vertical-align: middle;
+            letter-spacing: -0.24px;
+          }
+        }
+        .bottom-p{
+          width:25.6%;
+          line-height:1.5rem;
+          del{
+            @include fz(10);
+            color:$color9;
+            vertical-align: middle;
+            letter-spacing: -0.24px;
+          }
+        }
+        .bottom-t{
+          width:28.7%;
+          @include fz(12);
+          color:$colorfD;
+          line-height:2rem;
+          letter-spacing: -0.29px;
+          span{
+            @include fz(20);
+            @include pfm();
+            letter-spacing: -0.48px;
+            vertical-align: baseline;
+          }
+        }
+      }
+      .icon-rented{
+        @include icon-style(8rem, 8rem, 'rentedout.png');
+        position: absolute;
+        top: 2.2rem;
+        right: 5.3%
+      }
+    }
+  }
+  .rent-info.sec{
+    .item-mid{
+      .row{border-bottom:0;margin-bottom:0.6rem;}
+      padding:1.5rem 4% 0.4rem;
+      .icon{
+        @include icon-style(2.4rem, 2.4rem, 'info_icon01.png');
+        margin-right:1rem;
+      }
+      .icon02{
+        @include icon-checked-style('info_icon02.png');
+      }
+      .icon03{
+        @include icon-checked-style('info_icon03.png');
+      }
+      .icon04{
+        @include icon-checked-style('info_icon04.png');
+      }
+      .icon05{
+        @include icon-checked-style('info_icon05.png');
+      }
+      .explain{
+        margin-bottom:0.2rem;
+        display:inline-block;
+        width:calc(100% - 3.4rem);
+        .headline{
+          @include fz(13);
+          line-height:1.8rem;
+          margin:0.3rem auto 0.6rem;
+          white-space: normal;
+          @include pfm();
+        }
+        .txt{
+          @include fz(12);
+          color:$color9;
+          line-height:1.7rem;
+          white-space: normal;
+          letter-spacing: 0;
+          .rent-process{
+            width:100%;
+            height:3.9rem;
+            line-height:normal;
+            display:inline-block;
+            background:url($bg-img + 'rent_process.png') no-repeat;
+            background-size:contain;
+            margin:0.4rem auto 0.8rem;
+          }
+        }
+      }
+    }
+  }
+  .mt13 {
+    margin-top:1.3rem
+  }
+  .mt15 {
+    margin-top:1.5rem
+  }
+  .mt10 {
+    margin-top:1rem
+  }
+  ion-toolbar{
+    padding:0;
+  }
+
+  ion-footer{
+    .shadow{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);z-index:1;}
+    .submit-btn{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      z-index:2;
+      background:$bg-white;
+    }
+    .fee-detail{
+      position:absolute;
+      bottom:calc(5.5rem + 0.5px);
+      left:0;
+      right:0;
+      background:$bg-gray;
+      border-bottom:$li-border;
+      z-index:2;
+      max-height:80vh;
+      overflow-y:auto;
+      .sec{
+        padding:0 5.3% 2rem;
+        background:$bg-white;
+        overflow: hidden;
+      }
+      .title{
+        line-height:5rem;
+        @include fz(15);
+        color:$color-gray;
+        text-align:center;
+        span{
+          position:relative;
+          letter-spacing: -0.36px;
+          &:before{
+            content:"";
+            width:1.6rem;
+            height:1px;
+            background:$colorfd8;
+            position:absolute;
+            left:-2.7rem;
+            top:0.7rem;
+          }
+          &:after{
+            content:"";
+            width:1.6rem;
+            height:1px;
+            background:$colorfd8;
+            position:absolute;
+            right:-2.7rem;
+            top:0.7rem;
+          }
+        }
+
+      }
+      .fee-list{
+        li {
+          @include fz(14);
+          color:$color-dark;
+          line-height:3.5rem;
+          letter-spacing: -0.34px;
+          .gray{
+            color:$color2A;
+            margin-left:1rem;
+          }
+          .name{
+            float:left;
+            width:50%;
+            overflow:hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          .price{
+            float:left;
+            width:50%;
+            text-align:right;
+          }
+        }
+      }
+    }
+  }
+  //公共tab切换
+  .tab-list{
+    padding:0 4%;
+    li{
+      width:50%;
+      float:left;
+      text-align:center;
+      @include fz(16);
+      color:$color3;
+      line-height:2.2rem;
+      padding-bottom:0.4rem;
+      margin:0.9rem 0 0.4rem;
+      &.active {
+        span{
+          color:$colorfd7;
+          border-bottom:3px solid $colorfd7;
+          display:inline-block;
+        }
+
+      }
+    }
+  }
+  //公共icon样式
+  .icon-radio{
+    @include icon-style(1.8rem, 1.8rem, 'i_radio.png');
+  }
+  .icon-radio-rented{
+    @include icon-style(1.8rem, 1.8rem, 'i_radio_rented.png');
+  }
+  .icon-radio.checked{
+    @include icon-checked-style( 'i_radio_checked.png');
+  }
+  .icon-arrow-r{
+    @include icon-style(0.6rem, 1rem, 'i_arr_r.png');
+  }
+  .icon-arrow-down-circle{
+    @include icon-style(1.1rem,1.1rem,'i_arr_down_c.png');
+
+  }
+  .icon-arrow-downs-circle{
+    @include icon-style(1.1rem,1.1rem,'i_arr_downs_c.png');
+
+  }
+  .icon-arrow-right-circle{
+    @include icon-style(1.1rem,1.1rem,'i_arr_right_c.png');
+
+  }
+  .icon-arrow-down-circle.up{
+    @include icon-checked-style('i_arr_up_c.png');
+  }
+  .icon-arrow-downs-circle.up{
+    @include icon-checked-style('i_arr_ups_c.png');
+  }
+
+  .icon-checkbox{
+    @include icon-style(1.8rem, 1.8rem, 'i_checkbox.png');
+  }
+  .icon-checkbox.checked{
+    @include icon-checked-style( 'i_checkbox_checked.png');
+  }
+
+  .icon-arrow-black{
+    @include icon-style(1.3rem, 0.8rem, 'i_arr_up_black.png');
+  }
+  .icon-arrow-black.down{
+    @include icon-checked-style('i_arr_down_black.png');
+  }
+  .icon-addr{
+    @include icon-style(1.3rem, 1.3rem, 'i_addr.png');
+  }
+  .icon-arr-link{
+    @include icon-style(1.3rem, 1.3rem, 'i_arr_link.png');
+  }
+  .icon-tel{
+    @include icon-style(1.3rem, 1.3rem, 'i_tel.png');
+  }
+  .icon-wechat{
+    @include icon-style(2.3rem, 2.3rem, 'i_wechat.png');
+  }
+  .icon-alipay{
+    @include icon-style(2.3rem, 2.3rem, 'i_alipay.png');
+  }
+  .icon-arr-down{
+    @include icon-style(1rem, 0.6rem, 'i_arr_down.png');
+  }
+  .icon-arr-down.up{
+    @include icon-checked-style('i_arr_up.png');
+  }
+  .icon-order-status01{
+    @include icon-style(2.5rem,2.5rem, 'order_status01.png');
+  }
+  .icon-order-status02{
+    @include icon-style(2.5rem,2.5rem, 'order_status02.png');
+  }
+  .icon-order-status03{
+    @include icon-style(2.5rem,2.5rem, 'order_status03.png');
+  }
+  .icon-order-status04{
+    @include icon-style(2.5rem,2.5rem, 'order_status04.png');
+  }
+  .icon-arr-crude{
+    @include icon-style(0.7rem,1.1rem, 'i_arr_money.png');
+  }
+  .icon-get{
+    @include icon-style(1.2rem,1.5rem, 'i_get.png');
+  }
+  .icon-back{
+    @include icon-style(1.2rem,1.5rem, 'i_back.png');
+  }
+  .icon-stars{
+    @include icon-style(1.5rem,1.5rem, 'comment_pic1.png');
+  }
+  .icon-stars.unstars{
+    @include icon-style(1.5rem,1.5rem, 'comment_pic2.png');
+  }
+  .icon-minus{
+    @include icon-style(2.5rem,2.5rem, 'i_minus.png');
+  }
+  .icon-plus{
+    @include icon-style(2.5rem,2.5rem, 'i_plus.png');
+  }
+  .icon-order{
+    @include icon-style(3.5rem,3.5rem, 'i_order.png');
+  }
+  .icon-address{
+    @include icon-style(4.4rem,4.4rem, 'ionic_address.png');
+  }
+  .icon-close{
+    @include icon-style(1.6rem,1.6rem, 'i_close.png');
+  }
+  .icon-logo{
+    @include icon-style(1.8rem,1.8rem, 'i_logo.png');
+  }
+  .icon-call-phone{
+    @include icon-style(1.55rem,1.55rem, 'ionc_call.png');
+  }
+  .icon-hourglass{
+    @include icon-style(1rem,1rem, 'i_hourglass.png');
+  }
+  .icon-cardetail-checkde{
+    @include icon-style(1.3rem,1.3rem, 'cardetail.png');
+  }
+}
+
+//底部导航
+.ion-ios-home:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer01.png);background-size:contain;background-repeat: no-repeat;}
+.ion-ios-home-outline:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer1.png);background-size:contain;background-repeat: no-repeat;}
+.ion-ios-information-circle:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer02.png);background-size:contain;background-repeat: no-repeat;}
+.ion-ios-information-circle-outline:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer2.png);background-size:contain;background-repeat: no-repeat;}
+.tabs-ios .tab-button:hover:not(.disable-hover), .tabs-ios .tab-button[aria-selected=true]{color:#FF6415;}
+.ion-ios-contacts:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer03.png);background-size:contain;background-repeat: no-repeat;}
+.ion-ios-contacts-outline:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer3.png);background-size:contain;background-repeat: no-repeat;}
+.tabs-ios .tab-button-icon::before {vertical-align: initial;}
+
+.ion-md-home:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer1.png);background-size:contain;background-repeat: no-repeat;}
+.ion-md-information-circle:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer2.png);background-size:contain;background-repeat: no-repeat;}
+.ion-md-contacts:before {content: " " !important;display: inline-block;width: 2.2rem; height:2.2rem;background-image: url(../assets/imgs/ico_footer3.png);background-size:contain;background-repeat: no-repeat;}
+.tabs-md .tab-button[aria-controls=tabpanel-t0-2][aria-selected=true] .tab-button-icon:before{background-image: url(../assets/imgs/ico_footer02.png);}
+
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-text{color:red;}
+.tabs-md .tab-button[aria-controls=tabpanel-t0-0][aria-selected=true] .tab-button-icon:before{content: " " !important;display: inline-block;width: 2.5rem; height:2.3rem;background-image: url(../assets/imgs/ico_footer01.png);background-size:contain;}
+.tabs-md .tab-button[aria-controls=tabpanel-t0-1][aria-selected=true] .tab-button-icon:before{content: " " !important;display: inline-block;width: 2.5rem; height:2.3rem;background-image: url(../assets/imgs/ico_footer02.png);background-size:contain;}
+.tabs-md .tab-button[aria-controls=tabpanel-t0-3][aria-selected=true] .tab-button-icon:before{content: " " !important;display: inline-block;width: 2.5rem; height:2.3rem;background-image: url(../assets/imgs/ico_footer03.png);background-size:contain;}
+.tabs-md .tab-button-icon::before {vertical-align: initial;}
+.tabbar{background-color:#ffffff !important;}
+.toolbar-title-ios{color:#222222 !important;}
+.ion-page ion-header ion-navbar.toolbar{padding:4px 5%;}
+.ion-page ion-header .toolbar-md .toolbar-content-md ion-title .toolbar-title-md{color:#424242;}
+.ion-page ion-header .ion-md-arrow-back:before{
+  background: url(../assets/imgs/leftarrow.png) no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  content: "";
+  width: 1rem;
+  height: 1.5rem;
+  display: inline-block;
+}
+
+
+
+.scroll-content{padding:0px !important;}
+
+@media (device-width: 375px) and (device-height: 812px) and (-webkit-min-device-pixel-ratio : 3){
+  //如果以后出现375*812,非ios机型，可以加上下面语句
+  ion-navbar{
+    .toolbar-background{
+      border-bottom:1px solid #e5e5e5;
+    }
+    &.toolbar-ios:first-child{
+      padding-top:54px !important;
+    }
+    &.toolbar-ios .title {
+      // top:44px !important;
+
+    }
+  }
+
+
+}
+.mybtnss{
+  z-index: 99;
+}
+#tab-t0-1{
+  display: block;
+  position: absolute;
+  width: 33%;
+  z-index: 999;
+  left:33%;
+}
+.range-md .range-knob{
+  top:9px !important;
+  width:28px !important; height:28px !important;
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.13), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  pointer-events: none;
+  border: 0px !important;
+}

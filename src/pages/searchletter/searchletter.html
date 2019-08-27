@@ -1,0 +1,143 @@
+<!--
+  Generated template for the SearchletterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-buttons left>
+      <button ion-button icon-only tappable (click)="goBack()">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>信证查询</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <div class="divin">
+      <div class="left">我的报告</div>
+      <div class="right"><button ion-button class="mybtn" (click)="checkMy()">查看</button></div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="division d3">
+    <div class="top"><div class="divin">必要认证</div></div>
+    <div class="con">
+      <div class="divin">
+        <ion-slides>
+          <ion-slide *ngFor="let item2 of nessary">
+            <ion-grid>
+              <ion-row>
+                <ion-col  *ngFor="let item of item2.data"  col-4  tabable  (click)="gotoLoan(item)">
+                  <div class="imgtop"><img [src]="item.risk_logo"></div>
+                  <div class="bottom">{{item.risk_name}}</div>
+                  <div class="bottom2" [ngClass]="{'blue':item.is_verify != '1'}">{{item.is_verify == '1'?'已认证':'未认证'}}</div>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+        </ion-slides>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="division d3">
+    <div class="top"><div class="divin">可选认证</div></div>
+    <div class="con">
+      <div class="divin">
+        <ion-slides>
+          <ion-slide *ngFor="let item2 of unnessary">
+            <ion-grid>
+              <ion-row>
+                <ion-col  *ngFor="let item of item2.data"  col-4  tabable  (click)="gotoLoan(item)">
+                  <div class="imgtop"><img [src]="item.risk_logo"></div>
+                  <div class="bottom">{{item.risk_name}}</div>
+                  <div class="bottom2" [ngClass]="{'blue':item.is_verify != '1'}">{{item.is_verify == '1'?'已认证':'未认证'}}</div>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-slide>
+        </ion-slides>
+
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="division d3" *ngIf="isLoan">
+    <div class="top"><div class="divin">热门融资推荐</div></div>
+    <div class="center">
+      <div class="divin">
+        <div class="centerleft"  tabable (click)="gotoIframe(loan1)">
+          <div class="left"><img [src]="loan1.logo" /></div>
+          <div class="right">
+            <div class="title">{{loan1.title}}</div>
+            <div class="des">最高{{loan1.quota_hight}}元</div>
+          </div>
+        </div>
+        <div class="centerright" tabable (click)="gotoIframe(loan2)">
+          <div class="left"><img [src]="loan2.logo" /></div>
+          <div class="right">
+            <div class="title">{{loan2.title}}</div>
+            <div class="des">最高{{loan2.quota_hight}}元</div>
+          </div>
+        </div>
+      </div>
+      <div class="divin">
+        <div class="centerleft" *ngIf="loan3 != undefined" tabable (click)="gotoIframe(loan3)">
+          <div class="left"><img [src]="loan3.logo" /></div>
+          <div class="right">
+            <div class="title">{{loan3.title}}</div>
+            <div class="des">最高{{loan3.quota_hight}}元</div>
+          </div>
+        </div>
+        <div class="centerright" *ngIf="loan4 != undefined"  tabable (click)="gotoIframe(loan4)">
+          <div class="left"><img [src]="loan4.logo" /></div>
+          <div class="right">
+            <div class="title">{{loan4.title}}</div>
+            <div class="des">最高{{loan4.quota_hight}}元</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="division d4">
+    <div class="top"><div class="divin">信用卡推荐</div></div>
+    <div class="center">
+      <div class="divin">
+        <div class="item" tabable (click)="gotoIframe2(credit1)">
+          <div class="itemin">
+            <div class="left"><img [src]="credit1.logo" /></div>
+            <div class="right">
+              <div class="title">{{credit1.recommend}}</div>
+              <div class="des">{{credit1.credie_bank_name}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="item" tabable (click)="gotoIframe2(credit2)">
+          <div class="itemin">
+            <div class="left"><img [src]="credit2.logo" /></div>
+            <div class="right">
+              <div class="title">{{credit2.recommend}}</div>
+              <div class="des">{{credit2.credie_bank_name}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>
